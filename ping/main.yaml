@@ -1,0 +1,8 @@
+---
+
+- name: Check connection to all users
+  hosts: allhosts
+
+  tasks:
+  - name: Ping remote machine
+    ansible.builtin.ping:

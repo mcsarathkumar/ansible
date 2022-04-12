@@ -1,0 +1,23 @@
+---
+
+- name: Check connection to all users
+  hosts: allhosts
+
+  tasks:
+  - name: update server
+    become: true
+    apt:
+      upgrade: yes
+      update_cache: yes
+  
+  - name: install nginx server
+    become: true
+    apt:
+      name: nginx
+      state: latest
+  
+  - name: start nginx server
+    become: true
+    service:
+      name: nginx
+      state: started
